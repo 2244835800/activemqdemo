@@ -34,7 +34,7 @@ public class Producter {
     public void init(){
         try {
             //创建一个链接工厂
-            connectionFactory = new ActiveMQConnectionFactory(USERNAME,PASSWORD,BROKEN_URL);
+            connectionFactory = new ActiveMQConnectionFactory(USERNAME,PASSWORD,"failover://tcp://192.168.30.15:61616");
             //从工厂中创建一个链接
             connection  = connectionFactory.createConnection();
             //开启链接

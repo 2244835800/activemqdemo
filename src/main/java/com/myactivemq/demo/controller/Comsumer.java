@@ -34,8 +34,9 @@ public class Comsumer {
 
     public void init(){
         try {
-            //1.创建连接工厂
-            connectionFactory = new ActiveMQConnectionFactory(USERNAME,PASSWORD,BROKEN_URL);
+            //1.创建连接工厂failover://tcp://localhost:61616
+//            connectionFactory = new ActiveMQConnectionFactory(USERNAME,PASSWORD,BROKEN_URL);
+            connectionFactory = new ActiveMQConnectionFactory(USERNAME,PASSWORD,"failover://tcp://192.168.30.15:61616");
             //2.由工厂创建连接
             connection  = connectionFactory.createConnection();
             //3.下达启动命令
